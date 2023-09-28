@@ -1,11 +1,22 @@
 import $ from "../src/assets/img/$.png";
 import person from "../src/assets/img/person.icon.png";
-import { useState } from 'react'
+import { useState } from "react";
 import spaceMemo from "../src/assets/font/SpaceMono-Bold.ttf";
 
 import "./App.css";
 
+let data = ["5", "10", "15", "25", "50"];
+
 function App() {
+  const [bill, setBill] = useState();
+  const [people, setPeople] = useState();
+  const [tip, setTip] = useState(0);
+
+  // const tipAmount = (tip / 100) * bill * people;
+  const tipAmount = (bill * tip) / 100 / people;
+  // const total = bill + tipAmount;
+  const total = bill / people + tipAmount;
+  console.log(tip);
   return (
     <div className="flex  max-w-4xl w-full mt-36 ">
       <div className="flex items-center justify-between max-w-4xl w-full bg-white py-6 px-6 rounded-lg">
@@ -16,8 +27,12 @@ function App() {
             </h2>
             <div className="flex justify-between max-w-sm  w-full relative ">
               <input
+                type="number"
+                min={0}
                 placeholder="0"
                 className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt font-bold rounded-lg"
+                value={bill}
+                onChange={(event) => setBill(parseInt(event.target.value))}
               />
               <img src={$} alt="money img" className="absolute top-3 left-3" />
             </div>
@@ -27,24 +42,23 @@ function App() {
               select tip %
             </h2>
             <div className="grid grid-cols-3 gap-x-3 gap-y-4">
-              <button className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl">
-                5%
-              </button>
-              <button className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl">
-                10%
-              </button>
-              <button className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl">
-                15%
-              </button>
-              <button className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl">
-                25%
-              </button>
-              <button className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl">
-                50%
-              </button>
-              <button className=" px-4 py-2 rounded-lg text-h2-color font-bold text-2xl">
-                custom
-              </button>
+              {data.map((item, index) => {
+                return (
+                  <button
+                    className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl"
+                    key={index}
+                    onClick={() => setTip(item)}
+                  >
+                    {item}%
+                  </button>
+                );
+              })}
+              <input
+                type="number"
+                min={0}
+                placeholder="Custom"
+                className="text-2xl font-bold flex text-end  border-1 border-solid border-2 rounded-lg"
+              />
             </div>
           </div>
           <div className="w-full flex flex-col items-start">
@@ -53,8 +67,12 @@ function App() {
             </h2>
             <div className="flex justify-between max-w-sm  w-full relative ">
               <input
+                type="number"
+                min={0}
                 placeholder="0"
                 className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt font-bold rounded-lg"
+                value={people}
+                onChange={(event) => setPeople(parseInt(event.target.value))}
               />
               <img
                 src={person}
@@ -72,19 +90,25 @@ function App() {
                 <span className="text-span-color text-sm">/ person</span>
               </div>
               <div>
-                <span className="text-4xl font-bold text-money-color">
-                  $0.00
+                <span
+                  className="text-4xl font-bold text-money-color"
+                  placeholder="0000"
+                >
+                  $
+                  {bill == null || people == null
+                    ? "0.00"
+                    : tipAmount.toFixed(2)}
                 </span>
               </div>
             </div>
             <div className="flex justify-between w-full">
               <div>
-                <h3 className="text-white text-lg">tip amount</h3>
+                <h3 className="text-white text-lg">total</h3>
                 <span className="text-span-color text-sm">/ person</span>
               </div>
               <div>
                 <span className="text-4xl font-bold text-money-color">
-                  $0.00
+                  ${bill == null || people == null ? "0.00" : total.toFixed(2)}
                 </span>
               </div>
             </div>
