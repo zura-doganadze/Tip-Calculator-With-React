@@ -12,9 +12,7 @@ function App() {
   const [people, setPeople] = useState();
   const [tip, setTip] = useState(0);
 
-  // const tipAmount = (tip / 100) * bill * people;
   const tipAmount = (bill * tip) / 100 / people;
-  // const total = bill + tipAmount;
   const total = bill / people + tipAmount;
   console.log(tip);
   return (
