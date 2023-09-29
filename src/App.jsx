@@ -1,7 +1,6 @@
 import $ from "../src/assets/img/$.png";
 import person from "../src/assets/img/person.icon.png";
 import { useState } from "react";
-import spaceMemo from "../src/assets/font/SpaceMono-Bold.ttf";
 
 import "./App.css";
 
@@ -16,9 +15,9 @@ function App() {
   const total = bill / people + tipAmount;
   console.log(tip);
   return (
-    <div className="flex  max-w-4xl w-full mt-36 ">
-      <div className="flex items-center justify-between max-w-4xl w-full bg-white py-6 px-6 rounded-lg">
-        <div className="left-content max-w-sm w-full ">
+    <div className="flex max-w-4xl w-full ">
+      <div className="flex md:flex-row flex-col items-center justify-between max-w-4xl w-full bg-white py-6 px-6 rounded-lg">
+        <div className="left-content max-w-sm w-full mr-6 mb-6">
           <div className="w-full flex flex-col items-start">
             <h2 className="capitalize mb-3 font-bold text-lg text-h2-color">
               bill
@@ -44,7 +43,7 @@ function App() {
               {data.map((item, index) => {
                 return (
                   <button
-                    className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl hover:bg-btn-active"
+                    className="bg-percent-btn md:px-10 py-2 rounded-lg text-white font-bold text-2xl hover:bg-btn-active"
                     key={index}
                     onClick={() => setTip(item)}
                   >
@@ -73,8 +72,8 @@ function App() {
                 min={0}
                 placeholder="0"
                 className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt 
-                            font-bold rounded-lg cursor-pointer hover:border-solid 
-                            hover:border-2 hover:border-btn-active-color "
+                            font-bold rounded-lg cursor-pointer 
+                            hover:border-solid hover:border-2 hover:border-btn-active-color"
                 value={people}
                 onChange={(event) => setPeople(parseInt(event.target.value))}
               />
@@ -119,7 +118,7 @@ function App() {
           </div>
           <div className="mb-8">
             <button
-              className="bg-reset-bg px-28 py-2 text-lg font-bold text-reset-btn-color 
+              className="bg-reset-bg md:px-28 px-12s py-2 text-lg font-bold text-reset-btn-color 
                     rounded-md cursor-pointer uppercase hover:bg-btn-active"
               onClick={() => window.location.reload()}
             >

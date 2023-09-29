@@ -1,18 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@500&family=Montserrat:wght@500&family=Space+Mono&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-html {
-    background-color: hsl(185, 41%, 84%);
+body {
+  max-width: 1280px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(185, 41%, 84%);
+  font-family: "Space Mono", monospace;
+  overflow: hidden;
+  height: 100vh;
 }
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
- 
