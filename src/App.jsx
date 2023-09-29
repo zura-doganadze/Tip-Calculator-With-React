@@ -15,7 +15,10 @@ function App() {
   const total = bill / people + tipAmount;
   console.log(tip);
   return (
-    <div className="flex max-w-4xl w-full ">
+    <div className="flex flex-col max-w-4xl w-full ">
+      <h1 className="text-h1-color tracking-widest text-2xl uppercase mb-8">
+        spli <br/>tter
+      </h1>
       <div className="flex md:flex-row flex-col items-center justify-between max-w-4xl w-full bg-white py-6 px-6 rounded-lg">
         <div className="left-content max-w-sm w-full mr-6 mb-6">
           <div className="w-full flex flex-col items-start">

@@ -18,7 +18,7 @@ export default {
         "input-txt": "#00474B",
         "h2-color": "#5E7A7D",
         "btn-active-color": "#9FE8DF",
-
+        "h1-color": "#3D6666",
       },
     },
   },
