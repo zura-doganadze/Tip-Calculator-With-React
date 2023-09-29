@@ -7,7 +7,7 @@ export default {
         "main-background": "hsl(185, 41%, 84%)",
         "output-bg": "#00474B",
         "reset-bg": "#26C2AE",
-        "reset-active": "#9FE8DF",
+        "btn-active": "#9FE8DF",
         "input-bg": "#F3F9FA",
         "percent-btn": "#00474B",
       },
@@ -17,6 +17,8 @@ export default {
         "reset-btn-color": "#00474B",
         "input-txt": "#00474B",
         "h2-color": "#5E7A7D",
+        "btn-active-color": "#9FE8DF",
+
       },
     },
   },

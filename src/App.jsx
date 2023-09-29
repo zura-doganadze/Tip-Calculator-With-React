@@ -28,7 +28,8 @@ function App() {
                 type="number"
                 min={0}
                 placeholder="0"
-                className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt font-bold rounded-lg"
+                className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt font-bold rounded-lg
+                cursor-pointer border-none hover:border-solid hover:border-2 hover:border-btn-active-color"
                 value={bill}
                 onChange={(event) => setBill(parseInt(event.target.value))}
               />
@@ -43,7 +44,7 @@ function App() {
               {data.map((item, index) => {
                 return (
                   <button
-                    className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl"
+                    className="bg-percent-btn px-10 py-2 rounded-lg text-white font-bold text-2xl hover:bg-btn-active"
                     key={index}
                     onClick={() => setTip(item)}
                   >
@@ -55,7 +56,10 @@ function App() {
                 type="number"
                 min={0}
                 placeholder="Custom"
-                className="text-2xl font-bold flex text-end  border-1 border-solid border-2 rounded-lg"
+                value={tip}
+                onChange={(event) => setTip(parseInt(event.target.value))}
+                className="text-2xl font-bold flex text-end  border-1 border-solid border-2 rounded-lg
+                  cursor-pointer hover:border-solid hover:border-2 hover:border-btn-active-color"
               />
             </div>
           </div>
@@ -68,7 +72,9 @@ function App() {
                 type="number"
                 min={0}
                 placeholder="0"
-                className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt font-bold rounded-lg"
+                className="bg-input-bg w-full px-5 py-2 flex text-end text-2xl text-input-txt 
+                            font-bold rounded-lg cursor-pointer hover:border-solid 
+                            hover:border-2 hover:border-btn-active-color "
                 value={people}
                 onChange={(event) => setPeople(parseInt(event.target.value))}
               />
@@ -81,8 +87,8 @@ function App() {
           </div>
         </div>
         <div className="right-content flex flex-col gap-y-28 max-w-sm w-full bg-output-bg rounded-md px-6">
-          <div className="w-full mt-8 flex flex-col gap-y-10">
-            <div className="flex justify-between w-full">
+          <div className="w-full mt-8 flex flex-col gap-y-10 capitalize">
+            <div className="flex justify-between w-full ">
               <div>
                 <h3 className="text-white text-lg font-">tip amount</h3>
                 <span className="text-span-color text-sm">/ person</span>
@@ -112,7 +118,11 @@ function App() {
             </div>
           </div>
           <div className="mb-8">
-            <button className="bg-reset-bg px-28 py-2 text-lg font-bold text-reset-btn-color rounded-md cursor-pointer uppercase">
+            <button
+              className="bg-reset-bg px-28 py-2 text-lg font-bold text-reset-btn-color 
+                    rounded-md cursor-pointer uppercase hover:bg-btn-active"
+              onClick={() => window.location.reload()}
+            >
               reset
             </button>
           </div>
